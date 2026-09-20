@@ -1,0 +1,13 @@
+﻿aktivnost,naziv,pocetak,zavrsetak,trajanje,ukupna_rezerva,kriticna
+A1.1,"Analiza znanstvenih rezultata, etičkog i pravnog okvira te potreba dionika u visokom obrazovanju",2.0,6.0,5.0,4.0,Ne
+A1.2,Analiza potreba poduzeća i neobrazovnih institucija za analitikom učenja,3.0,7.0,5.0,4.0,Ne
+A2.1,Razvoj koncepta cjelovitog sustava za analitiku učenja,6.0,12.0,7.0,4.0,Ne
+A3.1,Razvoj prototipa cjelovitog sustava za analitiku učenja,13.0,28.0,16.0,4.0,Ne
+A3.2,Testiranje i validacija prototipa cjelovitog sustava za analitiku učenja,27.0,32.0,6.0,4.0,Ne
+A4.1,Primjeri uporabe iz visokog obrazovanja i poduzeća,4.0,35.0,32.0,1.0,Ne
+A5.1,"Nastavak istraživanja, strategija suradnje, komercijalizacija i intelektualno vlasništvo",20.0,36.0,17.0,0.0,Da
+A5.2,Diseminacija istraživačkih rezultata i umrežavanje,3.0,35.0,33.0,1.0,Ne
+A6.1,Upravljanje projektom,1.0,36.0,36.0,,
+A6.2,Horizontalne aktivnosti,1.0,36.0,36.0,,
+A6.3,Promocija i vidljivost,1.0,36.0,36.0,,
+FINISH,Završna prekretnica projekta,36.0,36.0,0.0,,
