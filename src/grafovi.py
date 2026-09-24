@@ -148,17 +148,66 @@ def nacrtaj_s0_mrezu(raspored, cpm, putanja):
 
 
 def nacrtaj_histogram(zavrsetci, sazetak, putanja):
+
     p80 = f"{sazetak['p80']:.1f}".replace(".", ",")
+    prosjek = sazetak["prosjecni_zavrsetak"]
+    sd = sazetak["standardna_devijacija"]
+
+    prosjek_oznaka = f"{prosjek:.2f}".replace(".", ",")
+    donja_sd = prosjek - sd
+    gornja_sd = prosjek + sd
+
+    donja_sd_oznaka = f"{donja_sd:.2f}".replace(".", ",")
+    gornja_sd_oznaka = f"{gornja_sd:.2f}".replace(".", ",")
+
     plt.figure(figsize=(10, 5.5))
-    plt.hist(zavrsetci, bins=35, color="#4C78A8", edgecolor="white")
-    plt.axvline(ROK_PROJEKTA, color="#D62728", linestyle="--",
-                label=f"Planirani rok = M{ROK_PROJEKTA:g}")
-    plt.axvline(sazetak["p80"], color="#F59E0B",
-                label=f"P80 = M{p80} (80 % scenarija završava do tog mjeseca)")
+
+    plt.hist(
+        zavrsetci,
+        bins=35,
+        color="#4C78A8",
+        edgecolor="white"
+    )
+
+    # Raspon jedne standardne devijacije oko prosjeka
+    plt.axvspan(
+        donja_sd,
+        gornja_sd,
+        color="#59A14F",
+        alpha=0.12,
+        label=f"Prosjek ± 1 SD = M{donja_sd_oznaka} – M{gornja_sd_oznaka}"
+    )
+
+    # Planirani rok
+    plt.axvline(
+        ROK_PROJEKTA,
+        color="#D62728",
+        linestyle="--",
+        label=f"Planirani rok = M{ROK_PROJEKTA:g}"
+    )
+
+    # Prosječni završetak
+    plt.axvline(
+        prosjek,
+        color="#59A14F",
+        linestyle="-.",
+        linewidth=2,
+        label=f"Prosjek = M{prosjek_oznaka}"
+    )
+
+    # P80
+    plt.axvline(
+        sazetak["p80"],
+        color="#F59E0B",
+        label=f"P80 = M{p80} (80 % scenarija završava do tog mjeseca)"
+    )
+
     plt.title("S1 - distribucija simuliranog završetka projekta")
     plt.xlabel("Simulirani završetak projekta (mjesec)")
     plt.ylabel("Broj simuliranih scenarija")
+
     plt.legend()
+
     _spremi(putanja)
 
 
